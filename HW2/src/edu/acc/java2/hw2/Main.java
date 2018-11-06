@@ -88,20 +88,19 @@ public class Main {
         ListIterator<String> vacationSpentIterator = staffMap.get("Vacation Spent").listIterator();
         ListIterator<String> vacationEarnedIterator = staffMap.get("Vacation Earned").listIterator();
         Integer vacationSpent;
+        String firstName;
+        String lastName;
         while (vacationSpentIterator.hasNext()){
             vacationSpent = Integer.parseInt(vacationSpentIterator.next());
+            firstName = staffMap.get("First").get(vacationSpentIterator.previousIndex());
+            lastName =  staffMap.get("Last").get(vacationSpentIterator.previousIndex());
             if (vacationSpent == 0) {
-                System.out.printf("%s %s didn't take any vacation last year. Bummer.\n",
-                        staffMap.get("First").get(vacationSpentIterator.previousIndex()),
-                        staffMap.get("Last").get(vacationSpentIterator.previousIndex()));
+                System.out.printf("%s %s didn't take any vacation last year. Bummer.\n", firstName, lastName);
             }
             if (vacationSpent >= Integer.parseInt(staffMap.get("Vacation Earned")
                     .get(vacationSpentIterator.previousIndex()))) {
-                System.out.printf("%s %s exhausted all of their vacation last year.\n",
-                        staffMap.get("First").get(vacationSpentIterator.previousIndex()),
-                        staffMap.get("Last").get(vacationSpentIterator.previousIndex()));
+                System.out.printf("%s %s exhausted all of their vacation last year.\n", firstName, lastName);
             }
-
         }
 
         // Total bonuses
