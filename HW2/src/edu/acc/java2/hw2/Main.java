@@ -1,6 +1,5 @@
 package edu.acc.java2.hw2;
 
-import java.awt.geom.Arc2D;
 import java.io.*;
 import java.util.*;
 import java.io.FileReader;
